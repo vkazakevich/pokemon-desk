@@ -4,15 +4,12 @@
     "module": "commonjs",
     "allowJs": true,
     "moduleResolution": "node",
-    "declaration": false,
     "sourceMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "noLib": false,
-    "strict": true,
-    "suppressImplicitAnyIndexErrors": true
+    "strict": true
   },
   "types": [
     "typePatches"
