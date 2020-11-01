@@ -4,6 +4,8 @@ import cn from 'classnames'
 import './custom.css'
 import s from './App.modules.scss'
 
+import './example.ts'
+
 const App = () => {
   return (
     <div className={cn(s.header, 'color')}>
