@@ -6,7 +6,7 @@ import s from './App.modules.scss'
 
 import './example.ts'
 
-const App = () => {
+const App: React.FunctionComponent = () => {
   return (
     <div className={cn(s.header, 'color')}>
       This is App Component
