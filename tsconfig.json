@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
     "target": "es2020",
     "module": "commonjs",
     "allowJs": true,
@@ -11,10 +16,6 @@
     "jsx": "react",
     "strict": true
   },
-  "types": [
-    "typePatches"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "types": ["typePatches"],
+  "exclude": ["node_modules"]
 }
