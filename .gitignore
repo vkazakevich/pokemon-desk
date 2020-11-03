@@ -7,4 +7,5 @@ dist/
 
 .DS_Store
 
-src/**.d.ts
+src/**/**.d.ts
+!src/types/**.d.ts

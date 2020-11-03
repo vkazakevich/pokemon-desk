@@ -42,6 +42,11 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        loader: 'svg-react-loader',
+      },
     ],
   },
   plugins: [

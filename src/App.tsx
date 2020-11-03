@@ -1,10 +1,18 @@
 import React from 'react';
-import cn from 'classnames';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 import s from './App.module.scss';
 
-const App: React.FunctionComponent = () => {
-  return <div className={cn(s.header, 'color')}>This is App Component</div>;
-};
+const App: React.FunctionComponent = () => (
+  <>
+    <Header />
+    <main className={s.main}>
+      <div className={s.container}>Content</div>
+    </main>
+    <Footer />
+  </>
+);
 
 export default App;

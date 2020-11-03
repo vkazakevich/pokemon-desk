@@ -1,3 +1,11 @@
-.header {
-  font-size: 64px;
+.main {
+  height: calc(100vh - 184px);
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+.container {
+  max-width: 1125px;
+  display: flex;
+  margin: 0 auto;
 }
