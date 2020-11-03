@@ -4,8 +4,8 @@ import s from './Footer.module.scss';
 const Footer: React.FC = () => (
   <footer className={s.footer}>
     <div className={s.container}>
-      <div>
-        Make with{' '}
+      <div className={s.footer__content}>
+        Make with
         <span role="img" aria-label="Heart">
           ❤️
         </span>
