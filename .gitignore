@@ -6,3 +6,6 @@ dist/
 .vscode/
 
 .DS_Store
+
+src/**/**.d.ts
+!src/types/**.d.ts
