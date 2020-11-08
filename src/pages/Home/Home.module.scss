@@ -2,10 +2,13 @@
 
 .root {
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .contentWrap {
-  display: block;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 184px);
 }
 
 .contentText {

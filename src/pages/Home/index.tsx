@@ -1,8 +1,10 @@
 import React from 'react';
+
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import Layout from '../../components/Layout';
 import Parallax from '../../components/Parallax';
+import Footer from '../../components/Footer';
 
 import s from './Home.module.scss';
 
@@ -22,6 +24,7 @@ const HomePage = () => {
           <Parallax />
         </div>
       </Layout>
+      <Footer />
     </div>
   );
 };
