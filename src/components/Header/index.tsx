@@ -38,7 +38,9 @@ const Header = () => {
     <div className={s.root}>
       <div className={s.wrap}>
         <div className={s.pokemonLogo}>
-          <PokemonLogoSvg />
+          <Link to="/">
+            <PokemonLogoSvg />
+          </Link>
         </div>
         <div className={s.menuWrap}>
           {MENU_ITEMS.map(({ label, link, id }) => (
