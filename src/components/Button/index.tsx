@@ -5,8 +5,8 @@ import s from './Button.module.scss';
 
 interface ButtonProps {
   onClick: (event: React.MouseEvent) => void;
-  theme?: string;
-  size?: string;
+  theme?: 'yellow' | 'blue';
+  size?: 'small' | 'medium';
   fullWidth?: boolean;
 }
 
