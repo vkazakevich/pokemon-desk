@@ -34,14 +34,15 @@
 }
 
 .small {
+  height: 21px;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
-  padding: 0 20px 9px;
+  padding: 0 10px 2px;
 
   &:active {
     box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.18);
-    padding-bottom: 6px;
+    padding-bottom: 1px;
   }
 }
