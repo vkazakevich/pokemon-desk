@@ -13,12 +13,12 @@ const MENU_ITEMS: IMenu[] = [
   {
     id: 1,
     label: 'Home',
-    link: '#',
+    link: '/',
   },
   {
     id: 2,
     label: 'Pokédex',
-    link: '#',
+    link: '/pokedex',
   },
   {
     id: 3,
