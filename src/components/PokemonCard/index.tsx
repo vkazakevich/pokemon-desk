@@ -4,49 +4,48 @@ import Heading from '../Heading';
 import s from './PokemonCard.module.scss';
 
 interface IPokemon {
-  name: string,
+  name: string;
   stats: {
-    attack: number,
-    defense: number
-  },
-  img: string,
-  types: Array<string>
+    attack: number;
+    defense: number;
+  };
+  img: string;
+  types: Array<string>;
 }
 
 interface IPokemonCardProps {
-  pokemon: IPokemon
+  pokemon: IPokemon;
 }
 
-const PokemonCard: React.FC<IPokemonCardProps> = ({pokemon}) => {
+const PokemonCard: React.FC<IPokemonCardProps> = ({ pokemon }) => {
+  const { name, stats, types, img } = pokemon;
+
   return (
     <div className={s.root}>
       <div className={s.infoWrap}>
-        <Heading type='h1' className={s.titleName}>
-          {pokemon.name}
+        <Heading type="h1" className={s.titleName}>
+          {name}
         </Heading>
         <div className={s.statWrap}>
           <div className={s.statItem}>
-            <div className={s.statValue}>
-              {pokemon.stats.attack}
-            </div>
+            <div className={s.statValue}>{stats.attack}</div>
             Attack
           </div>
           <div className={s.statItem}>
-            <div className={s.statValue}>
-              {pokemon.stats.defense}
-            </div>
+            <div className={s.statValue}>{stats.defense}</div>
             Defense
           </div>
         </div>
         <div className={s.labelWrap}>
-          {pokemon.types.map((type) => <span key={type} className={s.label}>{type}</span>)}
+          {types.map((type: string) => (
+            <span key={type} className={s.label}>
+              {type}
+            </span>
+          ))}
         </div>
       </div>
       <div className={s.pictureWrap}>
-        <img
-          src={pokemon.img}
-          alt={pokemon.name}
-        />
+        <img src={img} alt={name} />
       </div>
     </div>
   );
