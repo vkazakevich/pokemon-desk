@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import {A, usePath} from 'hookrouter';
+import { A, usePath } from 'hookrouter';
 import { ReactComponent as PokemonLogoSvg } from '../../assets/logo.svg';
 import { GENERAL_MENU } from '../../routes';
 

@@ -23,12 +23,12 @@ export const GENERAL_MENU: Array<IGeneralMenu> = [
   {
     title: 'Legendaries',
     link: '/legendaries',
-    component: () => <PokedexPage/>
+    component: () => <></>
   },
   {
     title: 'Documentation',
     link: '/documentation',
-    component: () => <PokedexPage/>
+    component: () => <></>
   },
 ];
 

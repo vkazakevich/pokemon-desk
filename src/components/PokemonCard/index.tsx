@@ -9,7 +9,8 @@ interface IPokemon {
     attack: number,
     defense: number
   },
-  img: string
+  img: string,
+  types: Array<string>
 }
 
 interface IPokemonCardProps {
@@ -38,7 +39,7 @@ const PokemonCard: React.FC<IPokemonCardProps> = ({pokemon}) => {
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>Fire</span>
+          {pokemon.types.map((type) => <span key={type} className={s.label}>{type}</span>)}
         </div>
       </div>
       <div className={s.pictureWrap}>
