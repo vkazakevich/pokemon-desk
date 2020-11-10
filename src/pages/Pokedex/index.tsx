@@ -16,7 +16,9 @@ const PokedexPage = () => {
     <div className={s.root}>
       <Header/>
       <Layout className={s.contentWrap}>
-        <Heading type="h1">Pokedex page</Heading>
+        <Heading type="h2" className={s.heading}>
+          {pokemons.length} <strong>Pokemons</strong> for you to choose your favorite
+        </Heading>
         <div className={s.grid}>
           {pokemons.map((pokemon) => <PokemonCard key={pokemon.id} pokemon={pokemon}/>)}
         </div>

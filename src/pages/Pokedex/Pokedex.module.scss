@@ -19,3 +19,13 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 35px;
 }
+
+.heading {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 41px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #000000;
+}
