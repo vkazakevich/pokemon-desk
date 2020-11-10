@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'hookrouter';
 
 import Header from '../../components/Header';
 import Button from '../../components/Button';
@@ -9,7 +10,7 @@ import Footer from '../../components/Footer';
 import s from './Home.module.scss';
 
 const HomePage = () => {
-  const onClick = () => true;
+  const onClick = () => navigate('/pokedex');
 
   return (
     <div className={s.root}>
