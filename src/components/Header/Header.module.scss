@@ -1,63 +1,63 @@
-.header {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-  color: #212121;
-  padding: 15px 0;
-  background: #f5db13;
-  box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
+@import '../../variables';
+
+.root {
+  height: 93px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
+.wrap {
+  width: 100%;
   max-width: 1125px;
+  height: 63px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
 }
 
-.logo {
+.pokemonLogo {
   width: 158px;
-  height: auto;
+  height: 63px;
 }
 
-.menu__list {
+.menuWrap {
   display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0 -15px 0 0;
-  font-size: 25px;
-  line-height: 1.16;
+  align-items: center;
+  max-width: 658px;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.menu__list_item {
-  margin-right: 27px;
+.menuLink {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  color: $dark;
+  text-decoration: none;
+  position: relative;
 
-  &:last-child {
-    margin: 0;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    height: 1px;
+    width: 1%;
+    background: $dark;
+    border: 1px solid $dark;
+    border-radius: 6px;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: opacity, width ease-in-out 0.25s;
   }
 
-  a {
-    padding: 0 15px 17px;
-    border-bottom: 3px solid #f5db13;
-    position: relative;
-    display: block;
-
+  &:hover,
+  &.activeLink {
     &:after {
-      content: '';
-      position: absolute;
-      width: calc(100% - 30px);
-      height: 3px;
-      bottom: 0;
-      left: 50%;
-      opacity: 0;
-      background: #212121;
-      transition: 0.3s;
-      border-radius: 5px;
-      transform: translateX(-50%);
-    }
-
-    &:hover:after {
+      width: 100%;
       opacity: 1;
     }
   }

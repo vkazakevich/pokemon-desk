@@ -16,6 +16,5 @@
     "jsx": "react",
     "strict": true
   },
-  "types": ["typePatches"],
   "exclude": ["node_modules"]
 }

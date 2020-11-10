@@ -1,18 +1,17 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-
-import s from './App.module.scss';
+import HomePage from './pages/Home';
+import PokedexPage from './pages/Pokedex';
 
 const App: React.FunctionComponent = () => (
-  <>
-    <Header />
-    <main className={s.main}>
-      <div className={s.container}>Content</div>
-    </main>
-    <Footer />
-  </>
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/pokedex" component={PokedexPage} />
+      <Redirect to="/" />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default App;
