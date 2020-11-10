@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "strict": true
+    "strict": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules"]
 }
