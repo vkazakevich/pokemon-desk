@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { navigate } from 'hookrouter';
 
 import Header from '../../components/Header';
 import Button from '../../components/Button';
@@ -10,9 +10,7 @@ import Footer from '../../components/Footer';
 import s from './Home.module.scss';
 
 const HomePage = () => {
-  const history = useHistory();
-
-  const onClick = () => history.push('/pokedex');
+  const onClick = () => navigate('/pokedex');
 
   return (
     <div className={s.root}>

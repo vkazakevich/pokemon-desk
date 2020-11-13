@@ -6,11 +6,26 @@
 }
 
 .contentWrap {
-  display: flex;
-  align-items: center;
   height: calc(100vh - 184px);
+  overflow: scroll;
 }
 
 .contentText {
   display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
+}
+
+.heading {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 41px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #000000;
 }

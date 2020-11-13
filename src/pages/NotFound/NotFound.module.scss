@@ -1,0 +1,50 @@
+@import '../../variables';
+
+.root {
+  height: 100vh;
+  overflow: hidden;
+  background: #D93E30;
+}
+
+.wrap {
+  display: block;
+}
+
+.text {
+  position: absolute;
+  font-weight: bold;
+  font-size: 700px;
+  line-height: 1;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 4px;
+  color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
+}
+
+.subTitle {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 62px;
+  color: #000;
+
+  span {
+    color: #F2F2F2;
+  }
+}
+
+.content {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  img {
+    height: 70vh;
+  }
+}

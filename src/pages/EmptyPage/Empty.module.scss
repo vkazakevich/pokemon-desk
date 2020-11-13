@@ -3,15 +3,10 @@
 .root {
   min-height: 100vh;
   overflow: hidden;
-  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
 }
 
 .contentWrap {
   display: flex;
   align-items: center;
   height: calc(100vh - 184px);
-}
-
-.contentText {
-  display: block;
 }
