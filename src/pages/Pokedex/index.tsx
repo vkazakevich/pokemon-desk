@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
 import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokemonCard';
+import Loader from '../../components/Loader';
 
 import { usePokemons } from '../../hooks/use-pokemons';
 
@@ -13,7 +14,7 @@ const PokedexPage = () => {
   const { data, isError, isLoading } = usePokemons();
 
   if (isLoading) {
-    return <b>Loading...</b>;
+    return <Loader/>;
   }
 
   if (isError || data === null) {
