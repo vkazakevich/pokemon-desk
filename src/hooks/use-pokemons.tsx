@@ -31,10 +31,12 @@ export const usePokemons = (): IUsePokemons => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    const params = { limit: 1000 }
+
     const getPokemons = async () => {
       setIsLoading(true);
       try {
-        const { data } = await axios.get(API_URL);
+        const { data } = await axios.get(API_URL, { params });
         setData(data);
       } catch (e) {
         setIsError(true);
