@@ -2,44 +2,51 @@ import React from 'react';
 
 import HomePage from './pages/Home';
 import PokedexPage from './pages/Pokedex';
-import EmptyPage from "./pages/EmptyPage";
+import EmptyPage from './pages/EmptyPage';
 
 interface IGeneralMenu {
-  title: string,
-  link: string,
-  component: () => JSX.Element
+  title: string;
+  link: LinkEnum;
+  component: () => JSX.Element;
+}
+
+export enum LinkEnum {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  LEGENDARIES = '/legendaries',
+  DOCUMENTATION = '/documentation',
 }
 
 export const GENERAL_MENU: Array<IGeneralMenu> = [
   {
     title: 'Home',
-    link: '/',
-    component: () => <HomePage/>
+    link: LinkEnum.HOME,
+    component: () => <HomePage />,
   },
   {
     title: 'Pokédex',
-    link: '/pokedex',
-    component: () => <PokedexPage/>
+    link: LinkEnum.POKEDEX,
+    component: () => <PokedexPage />,
   },
   {
     title: 'Legendaries',
-    link: '/legendaries',
-    component: () => <EmptyPage title="Legendaries"/>
+    link: LinkEnum.LEGENDARIES,
+    component: () => <EmptyPage title="Legendaries" />,
   },
   {
     title: 'Documentation',
-    link: '/documentation',
-    component: () => <EmptyPage title="Documentation"/>
+    link: LinkEnum.DOCUMENTATION,
+    component: () => <EmptyPage title="Documentation" />,
   },
 ];
 
 interface IAccMenu {
-  [n: string]: () => JSX.Element
+  [n: string]: () => JSX.Element;
 }
 
 const routes = GENERAL_MENU.reduce((acc: IAccMenu, item: IGeneralMenu) => {
   acc[item.link] = item.component;
   return acc;
-}, {})
+}, {});
 
 export default routes;
