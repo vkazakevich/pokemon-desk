@@ -16,7 +16,7 @@ const PokedexPage = () => {
     return <b>Loading...</b>;
   }
 
-  if (isError) {
+  if (isError || data === null) {
     return <b>Error :(</b>;
   }
 

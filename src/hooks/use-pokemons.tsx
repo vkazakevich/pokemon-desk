@@ -16,17 +16,17 @@ interface IPokemon {
 
 interface IData {
   total: number;
-  pokemons: Array<IPokemon>;
+  pokemons: IPokemon[];
 }
 
 interface IUsePokemons {
-  data: IData | object;
+  data: IData | null;
   isLoading: boolean;
   isError: boolean;
 }
 
 export const usePokemons = (): IUsePokemons => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
