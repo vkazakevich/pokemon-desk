@@ -14,18 +14,17 @@ const Header = () => {
       <div className={s.wrap}>
         <div className={s.pokemonLogo}>
           <A href="/">
-            <PokemonLogoSvg/>
+            <PokemonLogoSvg />
           </A>
         </div>
         <div className={s.menuWrap}>
-          {GENERAL_MENU.map(({title, link}) => (
+          {GENERAL_MENU.map(({ title, link }) => (
             <A
               key={title}
               href={link}
               className={cn(s.menuLink, {
-                [s.activeLink]: link === path
-              })}
-            >
+                [s.activeLink]: link === path,
+              })}>
               {title}
             </A>
           ))}
@@ -35,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

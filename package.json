@@ -10,6 +10,7 @@
   "repository": "https://github.com/vkazakevich/pokemon-desk.git",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.0",
     "classnames": "^2.2.6",
     "hookrouter": "^1.2.3",
     "prop-types": "^15.7.2",
