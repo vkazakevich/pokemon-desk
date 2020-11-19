@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
@@ -6,34 +6,50 @@ import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokemonCard';
 import Loader from '../../components/Loader';
 
-import { usePokemons } from '../../hooks/use-pokemons';
+import getData from '../../hooks/getData';
 
 import s from './Pokedex.module.scss';
 
-const POKEMONS_PER_PAGE = 24
-const SCROLL_OFFSET = 100
+interface IPokemon {
+  name: string;
+  stats: {
+    attack: number;
+    defense: number;
+  };
+  img: string;
+  types: Array<string>;
+  id: number;
+}
+
+interface IPokemons {
+  pokemons: IPokemon[]
+}
+
+const Pokemons: React.FC<IPokemons> = ({ pokemons }) => (
+  <div className={s.grid}>
+    {pokemons.map((pokemon) => (
+      <PokemonCard key={pokemon.id} pokemon={pokemon}/>
+    ))}
+  </div>
+)
 
 const PokedexPage = () => {
-  const { data, isError, isLoading } = usePokemons();
-  const [showCount, setShowCount] = useState(POKEMONS_PER_PAGE)
+  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState({});
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerHeight + document.documentElement.scrollTop + SCROLL_OFFSET > document.documentElement.offsetHeight) {
-        if (data && data.total > showCount) {
-          setShowCount((count) => count + POKEMONS_PER_PAGE)
-        }
-      }
-    }
+  const { data, isError, isLoading } = getData('getPokemons', query, [
+    search
+  ]);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [data]);
-
-  if (isLoading) {
-    return <Loader/>;
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+    setQuery((s) => ({
+      ...s,
+      name: search
+    }))
   }
-  if (isError || data === null) {
+
+  if (isError) {
     return <b>Error :(</b>;
   }
 
@@ -41,13 +57,13 @@ const PokedexPage = () => {
     <div className={s.root}>
       <Layout>
         <Heading type="h2" className={s.heading}>
-          {data.total} <strong>Pokemons</strong> for you to choose your favorite
+          {data && data.total} <strong>Pokemons</strong> for you to choose your favorite
         </Heading>
-        <div className={s.grid}>
-          {data.pokemons.slice(0, showCount).map((pokemon) => (
-            <PokemonCard key={pokemon.id} pokemon={pokemon}/>
-          ))}
+        <div>
+          <input type="text" placeholder="Encuentra tu pokémon..." className={s.search} value={search} onChange={handleSearchChange}/>
         </div>
+
+        {isLoading ? <Loader/> : <Pokemons pokemons={data.pokemons}/>}
       </Layout>
       <Footer/>
     </div>
