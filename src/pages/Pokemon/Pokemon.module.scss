@@ -1,0 +1,39 @@
+@import '../../variables';
+
+.root {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.contentText {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
+}
+
+.heading {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 41px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #000000;
+}
+
+.search {
+  background: #F2F2F2;
+  box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+  border-radius: 40px;
+  border: 0;
+  width: 100%;
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(33, 33, 33, 0.8);
+  padding: 16px 31px 17px;
+}
