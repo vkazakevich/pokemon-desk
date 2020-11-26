@@ -6,48 +6,44 @@ import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokemonCard';
 import Loader from '../../components/Loader';
 
-import getData from '../../hooks/getData';
+import useData from '../../hooks/useData';
 
 import s from './Pokedex.module.scss';
 
-interface IPokemon {
-  name: string;
-  stats: {
-    attack: number;
-    defense: number;
-  };
-  img: string;
-  types: Array<string>;
-  id: number;
+import { IPokemons, PokemonsRequest } from '../../interfaces/pokemons';
+import useDebounce from '../../hooks/useDebounce';
+
+interface IPokemonCards {
+  pokemons: PokemonsRequest[];
 }
 
-interface IPokemons {
-  pokemons: IPokemon[]
-}
-
-const Pokemons: React.FC<IPokemons> = ({ pokemons }) => (
+const Pokemons: React.FC<IPokemonCards> = ({ pokemons }) => (
   <div className={s.grid}>
     {pokemons.map((pokemon) => (
-      <PokemonCard key={pokemon.id} pokemon={pokemon}/>
+      <PokemonCard key={pokemon.id} pokemon={pokemon} />
     ))}
   </div>
-)
+);
+
+interface IQuery {
+  name?: string;
+}
 
 const PokedexPage = () => {
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState<IQuery>({});
 
-  const { data, isError, isLoading } = getData('getPokemons', query, [
-    search
-  ]);
+  const debouncedSearch = useDebounce(search, 500);
+
+  const { data, isError, isLoading } = useData<IPokemons>('getPokemons', query, [debouncedSearch]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
-    setQuery((s) => ({
-      ...s,
-      name: search
-    }))
-  }
+    setSearch(e.target.value);
+    setQuery((state: IQuery) => ({
+      ...state,
+      name: search,
+    }));
+  };
 
   if (isError) {
     return <b>Error :(</b>;
@@ -60,12 +56,18 @@ const PokedexPage = () => {
           {data && data.total} <strong>Pokemons</strong> for you to choose your favorite
         </Heading>
         <div>
-          <input type="text" placeholder="Encuentra tu pokémon..." className={s.search} value={search} onChange={handleSearchChange}/>
+          <input
+            type="text"
+            placeholder="Encuentra tu pokémon..."
+            className={s.search}
+            value={search}
+            onChange={handleSearchChange}
+          />
         </div>
 
-        {isLoading ? <Loader/> : <Pokemons pokemons={data.pokemons}/>}
+        {isLoading ? <Loader /> : <Pokemons pokemons={data.pokemons} />}
       </Layout>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

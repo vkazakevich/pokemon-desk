@@ -3,18 +3,10 @@ import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
 
-interface IPokemon {
-  name: string;
-  stats: {
-    attack: number;
-    defense: number;
-  };
-  img: string;
-  types: Array<string>;
-}
+import { PokemonsRequest } from '../../interfaces/pokemons';
 
 interface IPokemonCardProps {
-  pokemon: IPokemon;
+  pokemon: PokemonsRequest;
 }
 
 const PokemonCard: React.FC<IPokemonCardProps> = ({ pokemon }) => {
