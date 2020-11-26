@@ -7,16 +7,16 @@ interface IUseData {
   isError: boolean;
 }
 
-const useData = (endpoint: string, query: object, deps: any[] = []): IUseData => {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+const useData = <T>(endpoint: string, query: object, deps: any[] = []): IUseData => {
+  const [data, setData] = useState<T | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       setIsLoading(true);
       try {
-        const result = await req(endpoint, query);
+        const result = await req<T>(endpoint, query);
         setData(result);
       } catch (e) {
         setIsError(true);
@@ -32,7 +32,7 @@ const useData = (endpoint: string, query: object, deps: any[] = []): IUseData =>
     data,
     isLoading,
     isError,
-  }
-}
+  };
+};
 
 export default useData;
